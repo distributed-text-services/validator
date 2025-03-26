@@ -1,7 +1,7 @@
 SHELL:=/bin/bash
 
 UBHD_DTS_API?=https://digi.ub.uni-heidelberg.de/editionService/dts/
-DRACOR_DTS_API?=https://dev.dracor.org/api/v1/dts
+DRACOR_DTS_API?=https://staging.dracor.org/api/v1/dts
 FTSR_DTS_API?=http://ftsr-dev.unil.ch:9090/api/dts/
 
 REPORTS_DIR?=reports
@@ -52,6 +52,9 @@ test-ftsr-document:
 
 test-dracor-all:
 	pytest --entry-endpoint=$(DRACOR_DTS_API) -s --html=$(DRACOR_REPORTS_DIR)/dracor_all_report.html
+
+debug-dracor-all:
+	pytest --pdb --entry-endpoint=$(DRACOR_DTS_API) -s --html=$(DRACOR_REPORTS_DIR)/dracor_all_report.html
 
 test-dracor-entry:
 	pytest tests/test_entry_endpoint.py --entry-endpoint=$(DRACOR_DTS_API) -s --html=$(DRACOR_REPORTS_DIR)/dracor_entry_report.html

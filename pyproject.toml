@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dts-validator"
-version = "0.2.0"
+version = "0.2.1"
 description = "DTS validator: a suite of tests for testing & validating implementations of the DTS API"
 authors = ["Matteo Romanello <matteo.romanello@gmail.com>"]
 readme = "README.md"
@@ -16,6 +16,9 @@ requests = "^2.32.2"
 jsonschema = "^4.22.0"
 uritemplate = "^4.1.1"
 
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
 
 [build-system]
 requires = ["poetry-core"]

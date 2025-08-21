@@ -1,4 +1,4 @@
-name: Validate DraCor (dev) API
+name: Validate DoTS demo API
 
 on: [push]
 
@@ -22,11 +22,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install .
       - name: Test with pytest
-        run: pytest -s --entry-endpoint=https://staging.dracor.org/api/v1/dts --html=reports/dracor/${{matrix.python-version }}_report.html
+        run: pytest -s --entry-endpoint=https://dots.chartes.psl.eu/demo/api/dts/ --html=reports/dots/${{matrix.python-version }}_report.html
       - name: Upload pytest test results
         uses: actions/upload-artifact@v4
         with:
           name: pytest-results-${{ matrix.python-version }}
-          path: reports/dracor/
+          path: reports/dots/
         # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}

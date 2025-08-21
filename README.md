@@ -83,9 +83,17 @@ For more examples, see the commands contained in the [`Makefile`](./Makefile).
 
 </details>
 
-## Validation of known implementations
+### How to use the validator as a DTS client
+
+<details>
+<summary>Show more</summary>
+See the examples in notebook [`example_dts_client.ipynb`](./example_dts_client.ipynb).
+</details>
+
+## Validation of known current implementations
 
 | Name | API entry endpoint | DTS version |Validation status |
 |-------|-----|-------------|-------------------|
-| DraCor | https://dev.dracor.org/api/v1/dts | `unstable`|[![Validate DraCor (dev) API](https://github.com/mromanello/DTS-validator/actions/workflows/dracor.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/dracor.yml) |
+| DraCor | https://staging.dracor.org/api/v1/dts | `unstable`|[![Validate DraCor (dev) API](https://github.com/mromanello/DTS-validator/actions/workflows/dracor.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/dracor.yml) |
 | UBHD | https://digi.ub.uni-heidelberg.de/editionService/dts/ | `unstable`|[![Validate UBHD API](https://github.com/mromanello/DTS-validator/actions/workflows/ubhd.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/ubhd.yml) |
+|DoTS demo |https://dots.chartes.psl.eu/demo/api/dts/|`1-alpha`|[![Validate DoTS API](https://github.com/mromanello/DTS-validator/actions/workflows/dots.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/dots.yml)|

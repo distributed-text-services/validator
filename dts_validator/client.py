@@ -53,7 +53,7 @@ class DTS_Resource(DTS_Collection):
 
 class DTS_CitableUnit(object):
     """Class representing a DTS CitableUnit object.
-    As per the DTS documentation, a `CitableUnit` is a portion of a `Resource` identified by a reference string."""
+    A `CitableUnit` is a portion of a `Resource` identified by a reference string."""
     def __init__(self, raw_json) -> None:
         self._json = raw_json
         self.id = raw_json["identifier"]
@@ -76,6 +76,7 @@ class DTS_Navigation(object):
 
         # populate additional properties from a DTS Navigation endpoint response JSON
         if 'member' in self._json and self._json['member']: 
+            # TODO: make sure that `member` contains a list and not a dictionary !
             for unit in self._json['member']:
                 self.citable_units.append(DTS_CitableUnit(unit))
 
@@ -93,23 +94,46 @@ class DTS_Navigation(object):
 
 # TODO: find a cleaner way of triggering the header validation
 class DTS_API(object):
-    def __init__(self, entry_endpoint_uri) -> None:
+    def __init__(self, entry_endpoint_uri, enable_validation: bool = True) -> None:
+        self._enable_validation = enable_validation
         req  = requests.get(entry_endpoint_uri)
-        assert 'application/ld+json' in req.headers['Content-Type'] # TODO: wrap around a try/except statement
+        
+        if self.is_validation_enabled:
+            try:
+                assert 'application/ld+json' in req.headers['Content-Type'] # TODO: wrap around a try/except statement
+            except AssertionError:
+                print('Missing `application/ld+json` in Content-Type header')
+        
         self._entry_endpoint_json = req.json()
+        
 
         # before using the URI templates, let's make sure that they are 
         # declared by the Entry endpoint as expected
-        check_required_property(self._entry_endpoint_json, 'collection')
-        check_required_property(self._entry_endpoint_json, 'document')
-        check_required_property(self._entry_endpoint_json, 'navigation')
+        if self.is_validation_enabled:
+            check_required_property(self._entry_endpoint_json, 'collection')
+            check_required_property(self._entry_endpoint_json, 'document')
+            check_required_property(self._entry_endpoint_json, 'navigation')
+        else:
+            LOGGER.info('Skipping validation of required properties in the Entry endpoint JSON')
 
         # initialise URI templates
-        self._collection_endpoint_template = URITemplate(self._entry_endpoint_json['collection'])
-        self._document_endpoint_template = URITemplate(self._entry_endpoint_json['document'])
-        self._navigation_endpoint_template = URITemplate(self._entry_endpoint_json['navigation'])
+        try:
+            self._collection_endpoint_template = URITemplate(self._entry_endpoint_json['collection'])
+            self._document_endpoint_template = URITemplate(self._entry_endpoint_json['document'])
+            self._navigation_endpoint_template = URITemplate(self._entry_endpoint_json['navigation'])
+        except KeyError as e:
+            msg = f"""
+            Missing required URI template in the Entry endpoint JSON: {e}.
+            Got keys: {self._entry_endpoint_json.keys()}
+            """
+            LOGGER.error(msg)
+            raise Exception(msg)
 
         # TODO pagination can be supported in collection or navigation endpoints => check that
+
+    @property
+    def is_validation_enabled(self) -> bool:
+        return self._enable_validation
 
     def collections(
             self, id: Optional[str] = None,
@@ -205,6 +229,7 @@ class DTS_API(object):
         else:
             return (None, response)
 
+    # TODO: add support for `mediaType` parameter
     def document(
             self,
             resource: DTS_Resource,

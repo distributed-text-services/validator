@@ -53,7 +53,7 @@ class DTS_Resource(DTS_Collection):
 
 class DTS_CitableUnit(object):
     """Class representing a DTS CitableUnit object.
-    As per the DTS documentation, a `CitableUnit` is a portion of a `Resource` identified by a reference string."""
+    A `CitableUnit` is a portion of a `Resource` identified by a reference string."""
     def __init__(self, raw_json) -> None:
         self._json = raw_json
         self.id = raw_json["identifier"]
@@ -122,8 +122,12 @@ class DTS_API(object):
             self._document_endpoint_template = URITemplate(self._entry_endpoint_json['document'])
             self._navigation_endpoint_template = URITemplate(self._entry_endpoint_json['navigation'])
         except KeyError as e:
-            LOGGER.error(f"Missing required URI template in the Entry endpoint JSON: {e}")
-            raise e
+            msg = f"""
+            Missing required URI template in the Entry endpoint JSON: {e}.
+            Got keys: {self._entry_endpoint_json.keys()}
+            """
+            LOGGER.error(msg)
+            raise Exception(msg)
 
         # TODO pagination can be supported in collection or navigation endpoints => check that
 

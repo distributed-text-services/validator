@@ -87,7 +87,9 @@ For more examples, see the commands contained in the [`Makefile`](./Makefile).
 
 <details>
 <summary>Show more</summary>
+  
 See the examples in notebook [`example_dts_client.ipynb`](./example_dts_client.ipynb).
+
 </details>
 
 ## Validation of known current implementations

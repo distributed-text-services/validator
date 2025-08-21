@@ -96,4 +96,4 @@ See the examples in notebook [`example_dts_client.ipynb`](./example_dts_client.i
 |-------|-----|-------------|-------------------|
 | DraCor | https://staging.dracor.org/api/v1/dts | `unstable`|[![Validate DraCor (dev) API](https://github.com/mromanello/DTS-validator/actions/workflows/dracor.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/dracor.yml) |
 | UBHD | https://digi.ub.uni-heidelberg.de/editionService/dts/ | `unstable`|[![Validate UBHD API](https://github.com/mromanello/DTS-validator/actions/workflows/ubhd.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/ubhd.yml) |
-|DoTS demo |https://dots.chartes.psl.eu/demo/api/dts/|`1-alpha`|TBA|
+|DoTS demo |https://dots.chartes.psl.eu/demo/api/dts/|`1-alpha`|[![Validate DoTS API](https://github.com/mromanello/DTS-validator/actions/workflows/dots.yml/badge.svg)](https://github.com/mromanello/DTS-validator/actions/workflows/dots.yml)|

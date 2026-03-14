@@ -3,13 +3,13 @@ SHELL:=/bin/bash
 UBHD_DTS_API?=https://digi.ub.uni-heidelberg.de/editionService/dts/
 DRACOR_DTS_API?=https://staging.dracor.org/api/v1/dts
 DoTS_DTS_API?=https://dots.chartes.psl.eu/demo/api/dts/
-FTSR_DTS_API?=http://ftsr-dev.unil.ch:9090/api/dts/
+Py-DTS-API?=https://py-dts-demo.onrender.com/api/dts/v1
 
 REPORTS_DIR?=reports
 MOCK_REPORTS_DIR=$(REPORTS_DIR)/docs/
 UBHD_REPORTS_DIR=$(REPORTS_DIR)/ubhd/
 DRACOR_REPORTS_DIR=$(REPORTS_DIR)/dracor/
-FTSR_REPORTS_DIR=$(REPORTS_DIR)/ftsr/
+Py-DTS-REPORTS_DIR=$(REPORTS_DIR)/pydts/
 DoTS_REPORTS_DIR=$(REPORTS_DIR)/dots/
 
 ##################################################
@@ -101,17 +101,17 @@ test-dots-strict:
 #    UNIL FTSR API  #
 #####################
 
-test-ftsr-all:
-	pytest --entry-endpoint=$(FTSR_DTS_API) -s --html=$(FTSR_REPORTS_DIR)/ftsr_report.html
+test-pydts-all:
+	pytest --entry-endpoint=$(Py-DTS-API) -s --html=$(Py-DTS-REPORTS_DIR)/pydts_report.html
 
-test-ftsr-entry:
-	pytest tests/test_entry_endpoint.py --entry-endpoint=$(FTSR_DTS_API) -s --html=$(FTSR_REPORTS_DIR)/ftsr_entry_report.html
+test-pydts-entry:
+	pytest tests/test_entry_endpoint.py --entry-endpoint=$(Py-DTS-API) -s --html=$(Py-DTS-REPORTS_DIR)/pydts_entry_report.html
 
-test-ftsr-collection:
-	pytest tests/test_collection_endpoint.py --entry-endpoint=$(FTSR_DTS_API) -s --html=$(FTSR_REPORTS_DIR)/ftsr_collection_report.html
+test-pydts-collection:
+	pytest tests/test_collection_endpoint.py --entry-endpoint=$(Py-DTS-API) -s --html=$(Py-DTS-REPORTS_DIR)/pydts_collection_report.html
 
-test-ftsr-navigation:
-	pytest tests/test_navigation_endpoint.py --entry-endpoint=$(FTSR_DTS_API) -s --html=$(FTSR_REPORTS_DIR)/ftsr_entry_report.html
+test-pydts-navigation:
+	pytest tests/test_navigation_endpoint.py --entry-endpoint=$(Py-DTS-API) -s --html=$(Py-DTS-REPORTS_DIR)/pydts_entry_report.html
 
-test-ftsr-document:
-	pytest tests/test_document_endpoint.py --entry-endpoint=$(FTSR_DTS_API) -s --html=$(FTSR_REPORTS_DIR)/ftsr_document_report.html
+test-pydts-document:
+	pytest tests/test_document_endpoint.py --entry-endpoint=$(Py-DTS-API) -s --html=$(Py-DTS-REPORTS_DIR)/pydts_document_report.html

@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "citable_unit.schema.json",
-    "$comment": "https://distributed-text-services.github.io/specifications/versions/1-alpha/#citableunit",
+    "$comment": "https://dtsapi.org/specifications/versions/v1.0/#citableunit",
     "type": "object",
     "properties": {
         "identifier": {"type": "string"},

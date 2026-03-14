@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "entry_response_schema.json",
-    "$comment": "https://distributed-text-services.github.io/specifications/versions/1-alpha/#entry-endpoint",
+    "$comment": "https://dtsapi.org/specifications/versions/v1.0/#entry-endpoint",
     "type": "object",
     "properties": {
         "@context": {"type": "string"},
@@ -9,7 +9,7 @@
         "@type": {"type": "string"},
         "dtsVersion": {
             "type": "string",
-            "enum": ["1-alpha", "unstable"]
+            "enum": ["1-alpha", "unstable", "1.0"]
         },
         "collection": {"type": "string"},
         "document": {"type": "string"},

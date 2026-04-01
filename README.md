@@ -4,7 +4,7 @@
 
 DTS validator is a suite of tests to validate implementations of the [DTS API](https://w3id.org/dts).  The tests are implemented with `pytest` and the `pytest-html` plugin is used to generate an HTML report of the performed tests. For now, only JSON validation (against JSON schemas) is implemented; JSON-LD validation (against SHACL shapes) will be added later on.
 
-**NB:** DTS Validator supports version [`unstable`](https://distributed-text-services.github.io/specifications/versions/unstable/) of the specs; it is currently up-to-date with commit [ef8c7cdaf789b61a1b7949fe42b1f168982a102a](https://github.com/distributed-text-services/specifications/commit/ef8c7cdaf789b61a1b7949fe42b1f168982a102a) of the DTS specs repo.
+**NB:** DTS Validator supports version [`1.0`](https://distributed-text-services.github.io/specifications/versions/unstable/) of the specs; it is currently up-to-date with commit [d246cd6e2573cdb164f25cb03e6e16badcc00822](https://github.com/distributed-text-services/specifications/commit/d246cd6e2573cdb164f25cb03e6e16badcc00822) of the DTS specs repo.
 
 ## Installation
 

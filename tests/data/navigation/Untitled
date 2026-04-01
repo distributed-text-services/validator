@@ -1,8 +1,8 @@
 {
   "@context": "https://dtsapi.org/context/v1.0.json",
   "dtsVersion": "1.0",
-  "@id":"https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula&down=2",
   "@type": "Navigation",
+  "@id": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula&down=1&start=C1&end=C3",
   "resource": {
     "@id": "https://en.wikisource.org/wiki/Dracula",
     "@type": "Resource",
@@ -31,8 +31,27 @@
           }
         ]
       }
-
     ]
+  },
+  "start": {
+      "identifier": "C1",
+      "@type": "CitableUnit",
+      "level": 1,
+      "parent": null,
+      "citeType": "Chapter",
+      "dublinCore": {
+        "title": [{"lang": "en", "value": "Chapter 1: Jonathan Harker's Journal"}]
+      }
+  },
+  "end": {
+      "identifier": "C3",
+      "@type": "CitableUnit",
+      "level": 1,
+      "parent": null,
+      "citeType": "Chapter",
+      "dublinCore": {
+        "title": [{"lang": "en", "value": "Chapter 3: Jonathan Harker's Journal - Continued"}]
+      }
   },
   "member": [
     {
@@ -65,6 +84,7 @@
         "title": [{"lang": "en", "value": "4 May"}]
       }
     },
+    /* ... */
     {
       "identifier": "C2",
       "@type": "CitableUnit",
@@ -95,10 +115,11 @@
         "title": [{"lang": "en", "value": "7 May"}]
       }
     },
+    /* ... */
     {
       "identifier": "C3",
       "@type": "CitableUnit",
-      "level": 2,
+      "level": 1,
       "parent": null,
       "citeType": "Chapter",
       "dublinCore": {
@@ -123,6 +144,17 @@
       "citeType": "Journal Entry",
       "dublinCore": {
         "title": [{"lang": "en", "value": "Midnight"}]
+      }
+    }
+    /* ... */
+    {
+      "identifier": "C3.E6",
+      "@type": "CitableUnit",
+      "level": 2,
+      "parent": "C3",
+      "citeType": "Journal Entry",
+      "dublinCore": {
+        "title": [{"lang": "en", "value": "Later: the Morning of 16 May"}]
       }
     }
   ]

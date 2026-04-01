@@ -1,6 +1,6 @@
 {
-  "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
-  "dtsVersion": "1-alpha",
+  "@context": "https://dtsapi.org/context/v1.0.json",
+  "dtsVersion": "1.0",
   "@id": "urn:cts:latinLit:phi1103.phi001.lascivaroma-lat1",
   "@type" : "Resource",
   "title" : "Priapeia",
@@ -32,7 +32,6 @@
   "citationTrees": [
     {
       "@type": "CitationTree",
-      "maxCiteDepth" : 2,
       "citeStructure" : [
         {
           "citeType": "poem",

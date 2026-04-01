@@ -1,6 +1,6 @@
 {
-  "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
-  "dtsVersion": "1-alpha",
+  "@context": "https://dtsapi.org/context/v1.0.json",
+  "dtsVersion": "1.0",
   "@type": "Navigation",
   "@id": "https://example.org/api/dts/navigation/?resource=https://en.wikisource.org/wiki/Dracula&ref=C1.E1&down=1",
   "resource": {

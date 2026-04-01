@@ -1,6 +1,6 @@
 {
-    "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
-    "dtsVersion": "1-alpha",
+    "@context": "https://dtsapi.org/context/v1.0.json",
+    "dtsVersion": "1.0",
     "@id": "lasciva_roma",
     "@type": "Collection",
     "collection": "/api/dts/collection/{?id,page,nav}",

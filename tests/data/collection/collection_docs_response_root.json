@@ -1,9 +1,9 @@
 {
-    "@context": "https://distributed-text-services.github.io/specifications/context/1-alpha1.json",
+    "@context": "https://dtsapi.org/context/v1.0.json",
     "@id": "general",
     "@type": "Collection",
     "collection": "/api/dts/collection/{?id,page,nav}",
-    "dtsVersion": "1-alpha",
+    "dtsVersion": "1.0",
     "totalParents": 0,
     "totalChildren": 2,
     "title": "Collection Générale de l'École Nationale des Chartes",
